@@ -1,42 +1,41 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check } from "lucide-react"
-import { QuoteFormDialog } from "@/components/QuoteFormDialog"
+import { Button } from "@/components/ui/button"
 
 const pricingTiers = [
   {
-    name: "Базовый",
-    price: "99 900",
+    name: "Маникюр",
+    price: "1 500",
     features: [
-      "До 5 страниц",
-      "Адаптивный дизайн",
-      "Базовая SEO-оптимизация",
-      "Форма обратной связи",
-      "1 месяц поддержки",
+      "Придание формы ногтям",
+      "Обработка кутикулы",
+      "Покрытие гель-лаком",
+      "Выбор из 100+ оттенков",
+      "Укрепляющее покрытие",
     ],
     highlighted: false,
   },
   {
-    name: "Про",
-    price: "249 900",
+    name: "Маникюр + дизайн",
+    price: "2 500",
     features: [
-      "До 15 страниц",
-      "Премиум-дизайн",
-      "Расширенная SEO-оптимизация",
-      "Интеграция CMS",
-      "Функционал e-commerce",
-      "3 месяца поддержки",
+      "Всё из тарифа «Маникюр»",
+      "Авторский nail-art",
+      "Омбре или градиент",
+      "Стразы и втирки",
+      "Фотосъёмка результата",
     ],
     highlighted: true,
   },
   {
-    name: "Индивидуальный",
-    price: "По запросу",
+    name: "Комплекс",
+    price: "4 000",
     features: [
-      "Неограниченно страниц",
-      "Кастомный функционал",
-      "API-интеграции",
-      "Персональный менеджер",
-      "6 месяцев поддержки",
+      "Маникюр с дизайном",
+      "Педикюр с покрытием",
+      "SPA-уход для рук",
+      "Массаж стоп",
+      "Приоритетная запись",
     ],
     highlighted: false,
   },
@@ -60,10 +59,10 @@ export function PricingSection() {
             Прозрачные цены
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-balance">
-            Выберите <span className="text-primary">идеальный тариф</span> для вашего проекта
+            Выберите <span className="text-primary">подходящую услугу</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            От стартапов до крупного бизнеса — у нас есть подходящее решение
+            Честные цены без скрытых доплат — платите только за то, что получаете
           </p>
         </div>
 
@@ -86,15 +85,11 @@ export function PricingSection() {
                 <CardTitle className="text-2xl mb-2">{tier.name}</CardTitle>
                 <div className="mt-4">
                   <span className="text-4xl font-bold">
-                    {tier.price === "По запросу" ? (
-                      <span className="text-3xl">{tier.price}</span>
-                    ) : (
-                      <>
-                        <span className="text-lg font-normal text-muted-foreground">от </span>
-                        {tier.price}
-                        <span className="text-lg font-normal text-muted-foreground"> ₽</span>
-                      </>
-                    )}
+                    <>
+                      <span className="text-lg font-normal text-muted-foreground">от </span>
+                      {tier.price}
+                      <span className="text-lg font-normal text-muted-foreground"> ₽</span>
+                    </>
                   </span>
                 </div>
               </CardHeader>
@@ -107,13 +102,13 @@ export function PricingSection() {
                     </li>
                   ))}
                 </ul>
-                <QuoteFormDialog
-                  packageName={tier.name}
+                <Button
+                  asChild
                   variant={tier.highlighted ? "default" : "outline"}
                   className={`w-full ${tier.highlighted ? "shadow-lg shadow-primary/20" : ""}`}
                 >
-                  {tier.price === "По запросу" ? "Связаться с нами" : "Выбрать тариф"}
-                </QuoteFormDialog>
+                  <a href="#contact">Записаться</a>
+                </Button>
               </CardContent>
             </Card>
           ))}
@@ -121,8 +116,8 @@ export function PricingSection() {
 
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground">
-            Все тарифы включают <span className="text-primary font-semibold">бесплатную настройку хостинга</span> и{" "}
-            <span className="text-primary font-semibold">SSL-сертификат</span>
+            Все услуги включают <span className="text-primary font-semibold">бесплатную консультацию</span> и{" "}
+            <span className="text-primary font-semibold">подбор оттенка</span>
           </p>
         </div>
       </div>

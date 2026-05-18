@@ -1,42 +1,42 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Layout, Palette, Code, Share2, Target, Search } from "lucide-react"
+import Icon from "@/components/ui/icon"
 
 const services = [
   {
-    icon: Layout,
-    title: "Веб-дизайн",
+    icon: "Hand",
+    title: "Классический маникюр",
     description:
-      "Мы создаем сайты, которые не только визуально привлекательны, но и функциональны, удобны в использовании. В CodeCraft ваш бренд в центре внимания — мы обеспечиваем соответствие онлайн-присутствия целям и ценностям вашего бизнеса.",
+      "Идеальный уход за руками: придание формы ногтям, обработка кутикулы, увлажнение и покрытие на ваш выбор. Создаём аккуратный и элегантный образ.",
   },
   {
-    icon: Palette,
-    title: "Графический дизайн",
+    icon: "Sparkles",
+    title: "Гелевое покрытие",
     description:
-      "От логотипов до постов в соцсетях — мы создаем креативные графические решения, усиливающие ваш бренд. Наши дизайны уникальны и профессиональны, производя нужное впечатление на целевую аудиторию.",
+      "Стойкое гелевое покрытие до 4 недель без сколов и потёртостей. Широкая палитра оттенков, включая трендовые новинки сезона.",
   },
   {
-    icon: Code,
-    title: "Веб-разработка",
+    icon: "Flower2",
+    title: "Nail-art и дизайн",
     description:
-      "Мы создаем технически надежные и перспективные сайты. Наша команда обеспечивает надежность, масштабируемость и скорость, помогая вашему бизнесу расти в цифровом пространстве.",
+      "Авторские рисунки, французский маникюр, омбре, втирки и стразы. Воплощаем любые идеи — от минимализма до яркого арт-маникюра.",
   },
   {
-    icon: Share2,
-    title: "Соцсети",
+    icon: "Footprints",
+    title: "Педикюр",
     description:
-      "Сильное присутствие в социальных сетях сегодня решает многое. Мы поможем создать впечатление с помощью привлекательных визуалов и эффективных стратегий, чтобы ваш бренд оставался заметным.",
+      "Комплексный уход за стопами: обработка огрубевшей кожи, придание формы ногтям, расслабляющий массаж и покрытие. Мягкость и красота надолго.",
   },
   {
-    icon: Target,
-    title: "Результат",
+    icon: "Gem",
+    title: "Наращивание ногтей",
     description:
-      "В CodeCraft мы нацелены на успех. Наш подход всегда направлен на достижение измеримых результатов, способствующих росту вашего бизнеса. Вместе находим то, что действительно работает.",
+      "Профессиональное наращивание на типсы или формы с использованием гелей и акрила премиум-класса. Крепкий и натуральный результат.",
   },
   {
-    icon: Search,
-    title: "SEO",
+    icon: "Heart",
+    title: "SPA-уход",
     description:
-      "Видимость в поиске критически важна. Мы оптимизируем сайт с применением современных SEO-техник, чтобы вы были выше в Google и целевая аудитория легко вас находила.",
+      "Питательные маски, парафинотерапия и расслабляющий массаж рук и ног. Позаботьтесь о себе в уютной атмосфере нашей студии.",
   },
 ]
 
@@ -47,13 +47,14 @@ export function ServicesSection() {
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="inline-block mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mx-auto block w-fit">
-          Наша экспертиза
+          Наши услуги
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-balance">
-          В чем мы <span className="text-primary">сильны</span>
+          Всё для красоты{" "}
+          <span className="text-primary">ваших рук и ног</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty leading-relaxed text-lg">
-          От концепции до запуска — мы трансформируем ваши цифровые амбиции в мощные онлайн-решения, приносящие результат.
+          Профессиональный уход, модные тренды и индивидуальный подход — в уютной студии в самом центре города.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
@@ -63,7 +64,7 @@ export function ServicesSection() {
             >
               <CardHeader>
                 <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                  <service.icon className="h-6 w-6" />
+                  <Icon name={service.icon} fallback="Sparkles" className="h-6 w-6" />
                 </div>
                 <CardTitle className="text-xl group-hover:text-primary transition-colors">{service.title}</CardTitle>
               </CardHeader>
